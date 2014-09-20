@@ -25,14 +25,14 @@ g.bubbles circle {
 
 
 
-g.bubbles text {
+/*g.bubbles text {
     text-anchor:middle;
     alignment-baseline:middle;
     opacity:0;
-    pointer-events:all;
+    pointer-events:all;*/
 /*    transition:0.05s;*/
-    color: black;
-}
+/*    color: black;
+}*/
 
 g.bubbles text:hover {
     opacity:1;
@@ -43,11 +43,15 @@ g.bubbles text:hover {
 
 
 
-/*g.threads line {
+g.bubbles line {
     fill:none;
-    stroke:navy;
-    opacity:0.5;
-}*/
+    stroke:black;
+    stroke-width:0.2;
+
+    opacity:1;
+    
+}
+
 
 
 /* TIPSY CSS*/

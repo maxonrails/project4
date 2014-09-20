@@ -7,75 +7,29 @@ if (window.jQuery) {
 }
 
 // 1) SELECT FUNCTIONS TO HIGHLIGHT CERTAIN RAPPERS
-    var selectAll = function(){
-    d3.selectAll("circle")
-        .style("opacity", 1)
-    };
 
-    var selectFemale = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.female")
-        .style("opacity", 1);
-    };
+    var select = function(userChoice){
+        if(userChoice != null){
+            d3.selectAll("circle")
+            .style("opacity", 0.4)
+            d3.selectAll("circle" + "." + userChoice)
+            .style("opacity", 1);
+            $(".rappers").hide()
+        } else {
+            d3.selectAll("circle")
+            .style("opacity", 1)
+            $(".rappers").hide()
+        }
+    }
 
-    var selectMale = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.male")
-        .style("opacity", 1);
-    };
-
-    var selectBlack = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.black")
-        .style("opacity", 1);
-    };
-
-    var selectWhite = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.white")
-        .style("opacity", 1);
-    };
-
-    var selectEast = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.east")
-        .style("opacity", 1);
-    };
-
-    var selectWest = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.west")
-        .style("opacity", 1);
-    };
-
-    var selectMidwest = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.midwest")
-        .style("opacity", 1);
-    };
-
-    var selectSouth = function(){
-    d3.selectAll("circle")
-        .style("opacity", 0.4)
-    d3.selectAll("circle.south")
-        .style("opacity", 1);
-    };
-
-// 2) MORE INFO - make new div appear with rapper info
+// 2) CREATE A NEW RAPPER DIV WHEN RAPPER CIRCLE IS CLICKED (IF IT DOESN'T ALREADY EXIST)
     var moreInfo = function(name){
          $(".rappers").hide()
          $("#" + name + "info").show();
          
     }
 
-// 3) PUT RAPPER INFO INTO NEW DIV!
+// 3) POPULATE NEW RAPPER DIV WITH RAPPER INFO FROM DATABASE
     var populateRapperDiv = function(name){
         console.log("populating the div for " + name)
         var svg = d3.select("#" + name + "info")
@@ -97,187 +51,113 @@ if (window.jQuery) {
     }
 
 
-
-// d3.json("/api/stocks.json", function(error, json) {
-//   if (error) return console.warn(error);
-//   theData = json;
-//   // visualizeit();
-
-
-// var svgContainer = d3.select("body").append("svg")
-//                                     .attr("width", 1000)
-//                                     .attr("height", 1000);
-
-// var circles = svgContainer.selectAll("circle")
-//   .data(theData)
-//   .enter()
-//   .append("circle")
-
-// var circleAttributes = circles
-// 						.attr("cx", function(d){
-// 							return (d.bid*3)
-// 						})
-// 						.attr("cy", function(d){
-// 							return (d.bid*3)
-// 						})
-// 						.attr("r", function(d){
-// 							return (d.bid/3)
-// 						})
-// 						.style("fill", "green");
-
-
-
-
-
-// });
-
-// var visualizeit = function(){
-// d3.select("body")
-//    .append("svg")
-//    .attr("width", 500)
-//    .attr("height", 500)
-//    .append("circle")
-//    .attr("cx", 40)
-//    .attr("cy", 40)
-//    .attr("r", 40 )
-//    .style("fill", "purple");
-
- 
-
-// }
+//  4) Make chart
 window.onload = function(){
-
-
-
-
-
-    //D3 program to fit circles of different sizes along a 
-    //horizontal dimension, shifting them up and down
-    //vertically only as much as is necessary to make
-    //them all fit without overlap.
-    //By Amelia Bellamy-Royds, in response to 
-    //http://stackoverflow.com/questions/20912081/d3-js-circle-packing-along-a-line
-    //inspired by
-    //http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html
-    //Freely released for any purpose under Creative Commons Attribution licence: http://creativecommons.org/licenses/by/3.0/
-    //Author name and link to this page is sufficient attribution.
-    
-// var svg = d3.select("body").append("svg").attr("height", "450px").attr("width", "450px")
-
-
-// svg.append("circle")
-//          .attr("class", "logo")
-//          .attr("cx", 25)
-//          .attr("cy", 25)
-//          .attr("r", 20)
-//          .style("fill", "transparent")
-//          .style("stroke", "black")   
-//          .style("stroke-width", 0.25)
-//          .style("fill", "url(#drake)");
-
-// svg.append("circle")
-// .attr("class", "logo")
-// .attr("cx", 125)
-// .attr("cy", 125)
-// .attr("r", 20)
-// .style("fill", "transparent")
-// .style("stroke", "black")   
-// .style("stroke-width", 0.25)
-// .style("fill", "url(#nicki_minaj)");
-
-// svg.append("circle")
-// .attr("class", "logo")
-// .attr("cx", 175)
-// .attr("cy", 175)
-// .attr("r", 20)
-// .style("fill", "transparent")
-// .style("stroke", "black")   
-// .style("stroke-width", 0.25)
-// .style("fill", "url(#image3)");
-
 
 
 var data = [
 {
+    name: "Drake",
 	x: 0.5,
 	r: 3,
 	id: "drake",
     region: "east",
     gender: "male",
-    race: "mixed"
+    race: "mixed",
+    unique_words: 4500,
+    average_grade_level: 12,
+    syllables_per_word: 2.3,
+    sentiment: -0.1
+
 },
 {
+    name: "Nicki Minaj",
 	x: 0.55,
 	r: 1.5,
 	id: "nicki_minaj",
     region: "east",
     gender: "female",
-    race: "black"
+    race: "black",
+    unique_words: 6000,
+    average_grade_level: 10,
+    syllables_per_word: 1.3,
+    sentiment: -0.3
 },
 {
+    name: "Kanye",
     x: 0.2,
     r: 5,
     id: "kanye",
     region: "south",
     gender: "male",
-    race: "black"
+    race: "black",
+    unique_words: 6000,
+    average_grade_level: 3,
+    syllables_per_word: 1.5,
+    sentiment: -0.03
 },
 {
+    name: "Jay-Z",
     x: 0.565,
     r: 1,
     id: "jay_z",
     region: "east",
     gender: "male",
-    race: "black"
+    race: "black",
+    unique_words: 6000,
+    average_grade_level: 5,
+    syllables_per_word: 1.1,
+    sentiment: 0
 },
 {
+    name: "lil jon",
     x: 0.5,
     r: 3,
     id: "lil_jon",
     region: "south",
     gender: "male",
-    race: "black"
+    race: "black",
+    unique_words: 6000,
+    average_grade_level: 15,
+    syllables_per_word: 1.7,
+    sentiment: 0.1
 },
 {
+    name: "Eminem",
     x: 0.655,
     r: 1.5,
     id: "eminem",
     region: "midwest",
     gender: "male",
-    race: "white"
+    race: "white",
+    unique_words: 6000,
+    average_grade_level: 8,
+    syllables_per_word: 2.2,
+    sentiment: 0.11
 
 },
 {
+    name: "Missy",
     x: 0.35,
     r: 1.5,
     id: "missy_elliott",
     region: "west",
     gender: "female",
-    race: "black"
+    race: "black",
+    unique_words: 6000,
+    average_grade_level: 11,
+    syllables_per_word: 1.4,
+    sentiment: -0.25
 },
 ]
 
-
-
-
-//create data array//
-// var data = [];
-// var N = 25, i = N;
-// var randNorm = d3.random.normal(0.5,0.2)
-// while(i--)data.push({
-//     x:randNorm(),
-//     r:Math.random()});
-    //x for x-position
-    //r for radius; value will be proportional to area  
-//________________//
-    
 console.log(data);
 
 //Set up SVG and axis//   
 var svg = d3.select("svg")
 			.attr("height", 500)
 			.attr("width", 1000);
-// var digits = /(\d*)/;
+
 var margin = 50; //space in pixels from edges of SVG
 var padding = 4; //space in pixels between circles
 var maxRadius = 25;
@@ -312,7 +192,7 @@ var formatPercent = d3.format(".0%");
 var xAxis = d3.svg.axis()
     .scale(xScale)
     .orient("top")
-    .ticks(5)
+    .ticks(9)
     .tickFormat(formatPercent);
     
 svg.append("g")
@@ -321,7 +201,7 @@ svg.append("g")
     .call(xAxis);
     
 var threads = svg.append("g")
-    .attr("class", "threads");
+    .attr("class", "threads")
 
     
 var bubbleLine = svg.append("g")
@@ -463,7 +343,7 @@ function calculateOffset(maxR){
     };
 }
     
-    //Create circles!//
+// CREATE THE CIRCLES!
 var maxR = 0;
 bubbleLine.selectAll("circle")
     .data(data.sort(
@@ -513,32 +393,35 @@ bubbleLine.selectAll("circle")
                 populateRapperDiv(d.id);
             }  
              moreInfo(d.id)
+
+
+
         })
 
 
+
+
               
-                // .transition().delay(300*i).duration(250)
-                .attr("cy", calculateOffset(maxR))
+    .transition().delay(500).duration(500)
+    .attr("cy", calculateOffset(maxR))
 
 
+    quadroot.add(d);
+    
+    //add a drop line from the centre of this
+    //circle to the axis
 
-            quadroot.add(d);
-            
-            bubbleLine.append("text")
-                .attr("x", scaledX)
-                .attr("y", d.offset)
-                // .text(d.x)
+    bubbleLine.append("line").datum(d)
 
+        .attr("x1", scaledX)
+        .attr("x2", scaledX)
+        .transition().delay(800).duration(1500)
+        .attr("y1", d.offset)
 
-            
-            //add a drop line from the centre of this
-            //circle to the axis
-            // threads.append("line").datum(d)
-            //     .attr({x1:scaledX, x2:scaledX, y2:margin})
-            //     .attr("y1", margin)
-            //     .transition().delay(300*i).duration(250)
-            //     .attr("y1", (baselineHeight+d.offset));
-        });
+        .attr("y2", 0)
+        
+       
+});
     
 
 
@@ -550,7 +433,7 @@ bubbleLine.selectAll("circle")
         title: function() {
             d = this.__data__
           // var d = this.__data__, c = colors(d.i);
-          return "I'm " + d.id +"! I know " + d.x*100 + " words!"
+          return "I'm " + d.name +"! I know " + d.x*100 + " words!"
 
         }
       });
