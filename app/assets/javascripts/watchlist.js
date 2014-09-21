@@ -1,4 +1,5 @@
 
+window.userChoice;
 
 if (window.jQuery) {  
     console.log("JQ is loaded")
@@ -6,19 +7,37 @@ if (window.jQuery) {
     console.log("JQ is not loaded")
 }
 
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 // 1) SELECT FUNCTIONS TO HIGHLIGHT CERTAIN RAPPERS
 
     var select = function(userChoice){
         if(userChoice != null){
-            d3.selectAll("circle")
-            .style("opacity", 0.4)
-            d3.selectAll("circle" + "." + userChoice)
-            .style("opacity", 1);
-            $(".rappers").hide()
+            window.userChoice = userChoice;
+            highlightRappers(window.userChoice)
         } else {
+            window.userChoice = 'all'
+        
+        }
+    }
+
+    var highlightRappers = function(globaluserChoice){
+        if(globaluserChoice == 'all'){
             d3.selectAll("circle")
             .style("opacity", 1)
-            $(".rappers").hide()
+        } else {
+        console.log(globaluserChoice)
+        d3.selectAll("circle")
+            .style("opacity", 0.4)
+            d3.selectAll("circle" + "." + globaluserChoice)
+            .style("opacity", 1);
         }
     }
 
@@ -158,7 +177,7 @@ var makeChart = function(dataChoice){
 
 
 
-
+console.log(window.userChoice)
 // if the chart exists, show it:
 if ($("#" + dataChoice).length){
         $(".svgCharts").hide();
@@ -182,8 +201,8 @@ if ($("#" + dataChoice).length){
 
     //Set up SVG and axis//   
     var svg = div.append("svg")
-    			.attr("height", 500)
-    			.attr("width", 1000);
+                .attr("height", 500)
+                .attr("width", 1000);
 
 
     var margin = 50; //space in pixels from edges of SVG
@@ -192,15 +211,15 @@ if ($("#" + dataChoice).length){
     var biggestFirst = true; //should largest circles be added first?
 
     var width = 1000;
-    	
-    	// This part is not necessary if you define the size of the SVG
-    	// in absolute terms (like I have above)
-    	// window.getComputedStyle(d3.select("svg")[0][0])["width"];
+        
+        // This part is not necessary if you define the size of the SVG
+        // in absolute terms (like I have above)
+        // window.getComputedStyle(d3.select("svg")[0][0])["width"];
         // width = digits.exec(width)[0];
     var height = 500;
 
-    	// Same here - I've already defined SVG 
-    	// window.getComputedStyle(svg[0][0])["height"];
+        // Same here - I've already defined SVG 
+        // window.getComputedStyle(svg[0][0])["height"];
         // height = Math.min(digits.exec(height)[0], width);
         
     var baselineHeight = (margin + height)/2;
@@ -412,7 +431,7 @@ if ($("#" + dataChoice).length){
         .enter()
             .append("circle")
             .attr("r", 
-            	function(d){
+                function(d){
                 var r=rScale(d.r);
                 maxR = Math.max(r,maxR);
                 return r;})
@@ -448,8 +467,8 @@ if ($("#" + dataChoice).length){
                 }        
                 d3.select(this)
 
-                	.attr("class", d.id + " " + d.region + " "+ d.gender + " " + d.race)
-                    .attr("cx", scaledX)
+                    .attr("class", d.id + " " + d.region + " "+ d.gender + " " + d.race)
+                    .attr("cx", 500)
                     .attr("cy",  0)
 
                 .on("click", function(d) {
@@ -462,10 +481,11 @@ if ($("#" + dataChoice).length){
 
 
 
+
             })
 
 
-        .transition().delay(500).duration(1000)
+        .transition().delay(0).duration(1000)
                 .attr("cy", calculateOffset(maxR))
                 .attr("cx", scaledX)
 
@@ -478,14 +498,6 @@ if ($("#" + dataChoice).length){
         //add a drop line from the centre of this
         //circle to the axis
 
-        bubbleLine.append("line").datum(d)
-
-            .attr("x1", scaledX)
-            .attr("x2", scaledX)
-            .transition().delay(800).duration(1500)
-            .attr("y1", d.offset)
-
-            .attr("y2", 0)
             
            
     });
@@ -514,5 +526,45 @@ if ($("#" + dataChoice).length){
 
 }
 
+var xChart = function(){
 
+    circles = d3.selectAll("circle")
+        .transition().delay(0).duration(1000)
+                .attr("cy", 0)
+                .attr("cx", 500);
+
+
+   
+
+    setTimeout(function(){
+        circles = d3.selectAll(".svgCharts")
+        .remove()
+        makeChart('x')
+
+        highlightRappers(window.userChoice);
+
+    }, 1000);
+
+}
+
+var testVarChart = function(){
+
+    circles = d3.selectAll("circle")
+        .transition().delay(0).duration(1000)
+                .attr("cy", 0)
+                .attr("cx", 500);
+
+
+ 
+
+    setTimeout(function(){
+        circles = d3.selectAll(".svgCharts")
+        .remove()
+        makeChart('testVar')
+
+        highlightRappers(window.userChoice);
+
+    }, 1000);
+
+}
 
