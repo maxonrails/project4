@@ -187,6 +187,9 @@ if ($("#" + dataChoice).length){
 
 } else { console.log("creating an svg for " + dataChoice + "chart")
                 
+    if(window.userChoice == null){
+        window.userChoice = 'all';
+    }
 
     console.log(dataChoice);
 
