@@ -1,30 +1,13 @@
-<!-- <h1>Watchlist</h1>
-<form>
-  <input type="text" ng-model='newSymbol' placeholder="Enter a symbol">
-  <input type="submit" value="Add">
-</form>
 
-<svg><defs>
-	<pattern id="tile-ww" patternUnits="userSpaceOnUse" width="6" height="6">
-		<image href="/images/drake.png" x="0" y="0" width="60" height="60"></image>
-	</pattern>
-	<pattern id="tile-us" patternUnits="userSpaceOnUse" width="7" height="9">
-		<image href="/images/tile-us.png?Wed Aug 01 2012 14:34:49 GMT+0100 (BST)" x="0" y="0" width="7" height="9"></image>
-	</pattern>
-</defs></svg>
-
-<div ng-controller="StocksCtrl">
-  <ul>
-    <li ng-repeat="stock in stocks">
-      {{stock.symbol}}, {{stock.name}}, bid: {{ stock.bid }}
-    </li>
-  </ul>
-</div>
-
- -->
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<button type="button" onclick="makeChart('testVar')">Make Chart with testVar</button>
+<button type="button" onclick="makeChart('x')">Make Chart with x</button>
  <body>
+
+
+ 	<button type="button" onclick="update()">Update</button>
+
+
+
 <button type="button" onclick="select()">Select all</button>
 <button type="button" onclick="select('female')">Women</button>
 <button type="button" onclick="select('male')">Men</button>
@@ -66,5 +49,6 @@
 
   </defs>
 
-
+<div id="allCharts"></div>
 </body>
+
