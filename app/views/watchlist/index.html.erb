@@ -1,135 +1,194 @@
 
-<button type="button" onclick="one_syllable_wordsChart()">one syllable words</button>
+<header>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
 
- <body>
+      <a class="navbar-brand"> </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
 
 
- 	<button type="button" onclick="xChart()">unique words</button>
- 	<button type="button" onclick="average_grade_levelChart()">average grade level</button>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
 
 
 
-<button type="button" onclick="select('all')">Select all</button>
-<button type="button" onclick="select('female')">Women</button>
-<button type="button" onclick="select('male')">Men</button>
-<button type="button" onclick="select('south')">Dirty South</button>
-<button type="button" onclick="select('east')">East Coast</button>
-<button type="button" onclick="select('midwest')">Midwest</button>
-<button type="button" onclick="select('west')">West Coast</button>
-<button type="button" onclick="select('black')">Black</button>
-<button type="button" onclick="select('white')">White</button>
-<svg>
+
+
+
+<div class="container">
+	<div class="jumbotron">
+		<div class="heading">99 PROBLEMS</div>
+		<div class="subheading">...and this pitch is the last one</div>
+	</div>
+		
+
+<div class="row intro">
+	<div class="col-md-6">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" onclick="one_syllable_wordsChart()">one syllable words</button>
+		 	<button type="button" class="btn btn-default" onclick="xChart()">unique words</button>
+		 	<button type="button" class="btn btn-default" onclick="average_grade_levelChart()">average grade level</button>
+		</div>
+
+
+
+	 	
+
+		<br><br>
+		<div class="btn-group">
+			<img src="images/group2.png" type="button" class="btn btn-default" onclick="select('group')"></button>
+			<img src="images/female2.png"  type="button" class="btn btn-default" onclick="select('female')"></button>
+			<img src="images/male2.png"  type="button" class="btn btn-default" onclick="select('male')"></button>
+		</div>
+	</div>
+
+
+
+	<div class="col-md-6 textboxes panel panel-default">
+		<div class="panel-body" id="textbox1">
+			<p>For each artist, a sample of 10,000 words was analysed from their body of work. The percentage of those words that consisted of only one syllable is plotted below. A lower percentage (on the left side of the chart) would suggest more complicated language. The size of the bubbles indicates the total number of words in that artist's corpus of work. We see a distinct group of artists with more complicated language, of which Kanye is the most popular. </p>
+		</div>
+
+		<div class="panel-body texts" id="textbox2">
+			<p>For each artist, a representative sample of 10,000 words was analysed from their body of work. Within this sample, unique words were counted and used to represent a relative measure of the artist's vocabulary. Aesop Rock clearly dominates the group with a vocabulary of more than double that of Missy Elliott. </p>
+
+		</div>
+
+		<div class="panel-body texts" id="textbox3">
+			<p>To measure the average grade level of the spoken material of the artists, I used the SMOG readability index (SMOG being the acronym for "Simple Measure of Gobbledygook"). The resulting grade estimates the number of years of education needed to understand a piece of writing. There were no truly suitable measures of readability as all indices required sentence length as an input, which is difficult to judge for rap songs.</p> 
+
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+<svg class="imagepatterns">
 
       <defs id="mdef">
 
 
-        <pattern id="drake" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/drake2.jpg"></image>
+        <pattern id="drake" x="0" y="0" height="1" width="1">
+          <image x="-10" y="-20" width="100" height="100" xlink:href="http://localhost:3000/images/drake2.jpg"></image>
         </pattern>
 
-        <pattern id="nicki_minaj" x="0" y="0" height="40" width="40">
+        <pattern id="nicki_minaj" x="0" y="0" height="1" width="1">
           <image x="-23" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/nicki_minaj2.jpg"></image>
         </pattern>
-                <pattern id="kanye" x="0" y="0" height="40" width="40">
-          <image x="-25" y="-30" width="170" height="170" xlink:href="http://localhost:3000/images/kanye2.jpg"></image>
+                <pattern id="kanye" x="0" y="0" height="1" width="1">
+          <image x="-35" y="-30" width="150" height="150" xlink:href="http://localhost:3000/images/kanye2.jpg"></image>
         </pattern>
 
-        <pattern id="jay_z" x="0" y="0" height="40" width="40">
-          <image x="-40" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/jay_z2.jpg"></image>
+        <pattern id="jay_z" x="0" y="0" height="1" width="1">
+          <image x="-25" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/jay_z2.jpg"></image>
         </pattern>
-                <pattern id="lil_jon" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/lil_jon2.jpg"></image>
+                <pattern id="lil_jon" x="0" y="0" height="1" width="1">
+          <image x="-35" y="-20" width="100" height="100" xlink:href="http://localhost:3000/images/lil_jon2.jpg"></image>
         </pattern>
 
-        <pattern id="eminem" x="0" y="0" height="40" width="40">
-          <image x="-30" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/eminem2.jpg"></image>
+        <pattern id="eminem" x="0" y="0" height="1" width="1">
+          <image x="-20" y="-10" width="120" height="120" xlink:href="http://localhost:3000/images/eminem2.jpg"></image>
         </pattern>
-        <pattern id="missy_elliott" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/missy_elliott2.jpg"></image>
+        <pattern id="missy_elliott" x="0" y="0" height="1" width="1">
+          <image x="-25" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/missy_elliott2.jpg"></image>
         </pattern>
 
         <!--  -->
 
-        <pattern id="fifty_cent" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/fifty_cent2.jpg"></image>
+        <pattern id="fifty_cent" x="0" y="0" height="1" width="1">
+          <image x="-55" y="-30" width="175" height="175" xlink:href="http://localhost:3000/images/fifty_cent2.jpg"></image>
         </pattern>
 
-        <pattern id="aesop_rock" x="0" y="0" height="40" width="40">
-          <image x="-23" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/aesop_rock2.jpg"></image>
+        <pattern id="aesop_rock" x="0" y="0" height="1" width="1">
+          <image x="-33" y="-5" width="120" height="120" xlink:href="http://localhost:3000/images/aesop_rock2.jpg"></image>
         </pattern>
-                <pattern id="beastie_boys" x="0" y="0" height="40" width="40">
-          <image x="-25" y="-30" width="170" height="170" xlink:href="http://localhost:3000/images/beastie_boys2.jpg"></image>
-        </pattern>
-
-        <pattern id="biggie" x="0" y="0" height="40" width="40">
-          <image x="-40" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/biggie2.jpg"></image>
-        </pattern>
-                <pattern id="busta_rhymes" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/busta_rhymes2.jpg"></image>
+                <pattern id="beastie_boys" x="0" y="0" height="1" width="1">
+          <image x="-25" y="-30" width="150" height="150" xlink:href="http://localhost:3000/images/beastie_boys2.jpg"></image>
         </pattern>
 
-        <pattern id="common" x="0" y="0" height="40" width="40">
+        <pattern id="biggie" x="0" y="0" height="1" width="1">
+          <image x="-20" y="-25" width="80" height="80" xlink:href="http://localhost:3000/images/biggie2.jpg"></image>
+        </pattern>
+                <pattern id="busta_rhymes" x="0" y="0" height="1" width="1">
+          <image x="-25" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/busta_rhymes2.jpg"></image>
+        </pattern>
+
+        <pattern id="common" x="0" y="0" height="1" width="1">
           <image x="-30" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/common2.jpg"></image>
         </pattern>
-        <pattern id="dead_prez" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/dead_prez2.jpg"></image>
+        <pattern id="dead_prez" x="0" y="0" height="1" width="1">
+          <image x="-12" y="-10" width="75" height="75" xlink:href="http://localhost:3000/images/dead_prez2.jpg"></image>
         </pattern>
 
         <!--  -->
 
-        <pattern id="jurassic_5" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/jurassic_52.jpg"></image>
+        <pattern id="jurassic_5" x="0" y="0" height="1" width="1">
+          <image x="-15" y="-15" width="125" height="125" xlink:href="http://localhost:3000/images/jurassic_52.jpg"></image>
         </pattern>
 
-        <pattern id="lil_wayne" x="0" y="0" height="40" width="40">
-          <image x="-23" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/lil_wayne2.jpg"></image>
+        <pattern id="lil_wayne" x="0" y="0" height="1" width="1">
+          <image x="-23" y="-20" width="170" height="170" xlink:href="http://localhost:3000/images/lil_wayne2.jpg"></image>
         </pattern>
-                <pattern id="ll_cool_j" x="0" y="0" height="40" width="40">
-          <image x="-25" y="-30" width="170" height="170" xlink:href="http://localhost:3000/images/ll_cool_j2.jpg"></image>
-        </pattern>
-
-        <pattern id="nwa" x="0" y="0" height="40" width="40">
-          <image x="-40" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/nwa2.jpg"></image>
-        </pattern>
-                <pattern id="ludacris" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/ludacris2.jpg"></image>
+                <pattern id="ll_cool_j" x="0" y="0" height="1" width="1">
+          <image x="-40" y="0" width="170" height="170" xlink:href="http://localhost:3000/images/ll_cool_j2.jpg"></image>
         </pattern>
 
-        <pattern id="run_dmc" x="0" y="0" height="40" width="40">
-          <image x="-30" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/run_dmc2.jpg"></image>
+        <pattern id="nwa" x="0" y="0" height="1" width="1">
+          <image x="-10" y="0" width="1" height="1" xlink:href="http://localhost:3000/images/nwa2.jpg"></image>
         </pattern>
-        <pattern id="salt_n_pepa" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/salt_n_pepa2.jpg"></image>
+                <pattern id="ludacris" x="0" y="0" height="1" width="1">
+          <image x="-25" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/ludacris2.jpg"></image>
+        </pattern>
+
+        <pattern id="run_dmc" x="0" y="0" height="1" width="1">
+          <image x="-10" y="0" width="50" height="50" xlink:href="http://localhost:3000/images/run_dmc2.jpg"></image>
+        </pattern>
+        <pattern id="salt_n_pepa" x="0" y="0" height="1" width="1">
+          <image x="-25" y="0" width="125" height="125" xlink:href="http://localhost:3000/images/salt_n_pepa2.jpg"></image>
         </pattern>
 
         <!--  -->
 
-        <pattern id="slick_rick" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/slick_rick2.jpg"></image>
+        <pattern id="slick_rick" x="0" y="0" height="1" width="1">
+          <image x="-10" y="-5" width="50" height="50" xlink:href="http://localhost:3000/images/slick_rick2.jpg"></image>
         </pattern>
 
-        <pattern id="snoop_dogg" x="0" y="0" height="40" width="40">
-          <image x="-23" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/snoop_dogg2.jpg"></image>
+        <pattern id="snoop_dogg" x="0" y="0" height="1" width="1">
+          <image x="-20" y="0" width="120" height="120" xlink:href="http://localhost:3000/images/snoop_dogg2.jpg"></image>
         </pattern>
-        <pattern id="talib_kweli" x="0" y="0" height="40" width="40">
-          <image x="-25" y="-30" width="170" height="170" xlink:href="http://localhost:3000/images/talib_kweli2.jpg"></image>
+        <pattern id="talib_kweli" x="0" y="0" height="1" width="1">
+          <image x="-35" y="-25" width="120" height="120" xlink:href="http://localhost:3000/images/talib_kweli2.jpg"></image>
         </pattern>
 
-        <pattern id="the_streets" x="0" y="0" height="40" width="40">
+        <pattern id="the_streets" x="0" y="0" height="1" width="1">
           <image x="-40" y="-20" width="120" height="120" xlink:href="http://localhost:3000/images/the_streets2.jpg"></image>
         </pattern>
 
-        <pattern id="tupac" x="0" y="0" height="40" width="40">
+        <pattern id="tupac" x="0" y="0" height="1" width="1">
           <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/tupac2.jpg"></image>
         </pattern>
 
-        <pattern id="diddy" x="0" y="0" height="40" width="40">
-          <image x="-15" y="-20" width="125" height="125" xlink:href="http://localhost:3000/images/diddy2.jpg"></image>
+        <pattern id="diddy" x="0" y="0" height="1" width="1">
+          <image x="-15" y="-15" width="100" height="100" xlink:href="http://localhost:3000/images/diddy2.jpg"></image>
         </pattern>
 
 
 
   </defs>
 
-<div id="allCharts"></div>
+	<div id="allCharts"></div>
+</div>
 </body>
+
+<body onload="one_syllable_wordsChart()">

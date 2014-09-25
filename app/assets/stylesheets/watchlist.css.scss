@@ -1,8 +1,11 @@
+@import 'bootstrap';
+
 
 
 g.axis path, g.axis line {
     fill:none; 
     stroke:black;
+    stroke-width:0.2;
 
 }
 g.axis text, g.bubbles text {
@@ -10,10 +13,7 @@ g.axis text, g.bubbles text {
     font-family:sans-serif;
 }
 
-g.bubbles line {
-    stroke-width:5; 
-    stroke:black;
-}
+
 
 g.bubbles circle {
 
@@ -23,7 +23,29 @@ g.bubbles circle {
     /*opacity: 1;*/
 }
 
+.imagepatterns {
+    height: 1px;
+    width: 1px;
+}
 
+.btn-group img {
+    height: 118px;
+    /*border: solid gray 1px;*/
+}
+
+.intro {
+    margin-right: 0;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.textboxes {
+    height: 172px;
+    margin-bottom: 0;
+}
 
 /*g.bubbles text {
     text-anchor:middle;
@@ -39,28 +61,56 @@ g.bubbles text:hover {
     font-size: 1em;
 }
 
-.svgCharts {
-
+.mainsvg {
+    padding-right: 0px;
+    margin-right: 0px;
 
 }
 
 
 
-g.bubbles line {
-    fill:none;
-    stroke:black;
-    stroke-width:0.2;
 
-    opacity:1;
-    
-}
 
 .wordcloud {
     margin: 0 auto;
     border: solid black 2px;
+
+}
+
+g.bubbles line {
+    fill:none;
+    stroke:gray;
+    stroke-width:0.7;
+    opacity:0.3;
     
 }
 
+.rappers {
+    height: 450px;
+}
+
+.rapper-large {
+
+}
+
+iframe {
+    position: relative;
+    left: 225px;
+    top: -212px;
+    height: 135px;
+
+}
+
+.heading {
+    font-size: 6em;
+    text-align: center
+}
+
+
+.subheading {
+    text-align: center;
+    font-size: 2em;
+}
 
 /* TIPSY CSS*/
 

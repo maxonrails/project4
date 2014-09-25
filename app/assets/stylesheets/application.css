@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import 'bootstrap';
+
 @charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate

@@ -16,6 +16,7 @@
 //= require d3
 //= require_tree ./angular
 //= require_tree .
+//= require bootstrap
 
 
 // TIPSY:
@@ -699,4 +700,11 @@
 
   exports.cloud = cloud;
 })(typeof exports === "undefined" ? d3.layout || (d3.layout = {}) : exports);
+
+
+
+// 
+
+
+
 
