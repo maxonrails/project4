@@ -275,6 +275,7 @@ var data = [
     id: "dead_prez",
     gender: "male",
     race: "black",
+    group: "group",
     unique_words: 2236,
     total_words: 61664,
     average_grade_level: 0.124,
