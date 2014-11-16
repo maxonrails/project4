@@ -24,6 +24,8 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2014 Daniel Eden
 */
 
+
+
 .animated {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -3174,3 +3176,10 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
 }
+
+
+
+
+
+ul li { display:block; float:left; }
+.active { background:red; }
